@@ -54,7 +54,7 @@ export const InstallPrompt: React.FC = () => {
                 className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-md"
             >
                 <div className="bg-warp-card/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-warp-blue to-blue-800 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+                    <div className="w-10 h-10 rounded-lg bg-linear-to-br from-warp-blue to-blue-800 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
                         <span className="text-white font-bold text-sm">W</span>
                     </div>
                     <div className="flex-1 min-w-0">

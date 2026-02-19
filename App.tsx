@@ -113,8 +113,8 @@ export default function App() {
         <div className="min-h-screen bg-warp-dark text-white font-sans relative overflow-hidden">
             {/* Ambient Background Glow */}
             <div className="fixed inset-0 pointer-events-none z-0">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-warp-blue/[0.03] blur-[150px] rounded-full" />
-                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-900/[0.03] blur-[120px] rounded-full" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-warp-blue/3 blur-[150px] rounded-full" />
+                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-900/3 blur-[120px] rounded-full" />
             </div>
 
             {/* WELCOME STATE — Landing Page */}

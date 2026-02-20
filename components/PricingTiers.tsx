@@ -5,7 +5,10 @@ interface PricingTiersProps {
     onStartFree: () => void;
 }
 
-const STRIPE_NODE_LINK = import.meta.env.VITE_STRIPE_NODE_LINK || '#';
+const STRIPE_NODE_LINK = import.meta.env.VITE_STRIPE_NODE_LINK || '';
+const STRIPE_SQUAD_LINK = import.meta.env.VITE_STRIPE_SQUAD_LINK || '';
+const STRIPE_SQUAD_PLUS_LINK = import.meta.env.VITE_STRIPE_SQUAD_PLUS_LINK || '';
+const STRIPE_PLATOON_LINK = import.meta.env.VITE_STRIPE_PLATOON_LINK || '';
 
 const tiers = [
     {
@@ -38,6 +41,7 @@ const tiers = [
         highlight: false,
         cta: 'Get Node',
         action: 'stripe-node' as const,
+        stripeLink: STRIPE_NODE_LINK,
     },
     {
         name: 'Squad',
@@ -53,7 +57,8 @@ const tiers = [
         highlight: true,
         cta: 'Get the Squad',
         badge: 'MOST POPULAR',
-        action: 'coming-soon' as const,
+        action: 'stripe-squad' as const,
+        stripeLink: STRIPE_SQUAD_LINK,
     },
     {
         name: 'Squad+',
@@ -68,7 +73,8 @@ const tiers = [
         excluded: ['Oracle'],
         highlight: false,
         cta: 'Upgrade to Squad+',
-        action: 'coming-soon' as const,
+        action: 'stripe-squad-plus' as const,
+        stripeLink: STRIPE_SQUAD_PLUS_LINK,
     },
     {
         name: 'Platoon',
@@ -85,7 +91,8 @@ const tiers = [
         highlight: false,
         cta: 'Go Platoon',
         altPrice: '$1,997/yr',
-        action: 'coming-soon' as const,
+        action: 'stripe-platoon' as const,
+        stripeLink: STRIPE_PLATOON_LINK,
     },
 ];
 
@@ -99,16 +106,13 @@ const fadeUp = {
 };
 
 export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
-    const handleClick = (action: string) => {
-        switch (action) {
-            case 'free':
-                onStartFree();
-                break;
-            case 'stripe-node':
-                window.open(STRIPE_NODE_LINK, '_blank');
-                break;
-            case 'coming-soon':
-                break;
+    const handleClick = (tier: typeof tiers[number]) => {
+        if (tier.action === 'free') {
+            onStartFree();
+            return;
+        }
+        if (tier.stripeLink) {
+            window.open(tier.stripeLink, '_blank');
         }
     };
 
@@ -187,15 +191,15 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                         </div>
 
                         <button
-                            onClick={() => handleClick(tier.action)}
+                            onClick={() => handleClick(tier)}
                             className={`mt-5 w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${tier.highlight
                                 ? 'bg-warp-blue text-white hover:bg-warp-blue-dim shadow-[0_0_15px_rgba(37,99,235,0.2)]'
-                                : tier.action === 'coming-soon'
+                                : (tier.action !== 'free' && !tier.stripeLink)
                                     ? 'bg-white/5 text-white/40 border border-white/5 cursor-default'
                                     : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                                 }`}
                         >
-                            {tier.action === 'coming-soon' ? `${tier.cta} — Soon` : tier.cta}
+                            {(tier.action !== 'free' && !tier.stripeLink) ? `${tier.cta} — Soon` : tier.cta}
                         </button>
                     </motion.div>
                 ))}

@@ -9,6 +9,7 @@ const STRIPE_NODE_LINK = import.meta.env.VITE_STRIPE_NODE_LINK || '';
 const STRIPE_SQUAD_LINK = import.meta.env.VITE_STRIPE_SQUAD_LINK || '';
 const STRIPE_SQUAD_PLUS_LINK = import.meta.env.VITE_STRIPE_SQUAD_PLUS_LINK || '';
 const STRIPE_PLATOON_LINK = import.meta.env.VITE_STRIPE_PLATOON_LINK || '';
+const STRIPE_PLATOON_YEARLY_LINK = import.meta.env.VITE_STRIPE_PLATOON_YEARLY_LINK || '';
 
 const tiers = [
     {
@@ -93,6 +94,7 @@ const tiers = [
         altPrice: '$1,997/yr',
         action: 'stripe-platoon' as const,
         stripeLink: STRIPE_PLATOON_LINK,
+        yearlyStripeLink: STRIPE_PLATOON_YEARLY_LINK,
     },
 ];
 
@@ -167,7 +169,22 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                             <span className="text-3xl font-bold text-white">{tier.price}</span>
                             {tier.period && <span className="text-sm text-warp-subtext">{tier.period}</span>}
                             {tier.altPrice && (
-                                <div className="text-xs text-warp-subtext mt-0.5">or {tier.altPrice}</div>
+                                <div className="text-xs text-warp-subtext mt-0.5">
+                                    or{' '}
+                                    {/* @ts-ignore - yearlyStripeLink might not exist on all tiers */}
+                                    {tier.yearlyStripeLink ? (
+                                        <a
+                                            href={tier.yearlyStripeLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-warp-blue/80 hover:text-warp-blue transition-colors underline decoration-dotted underline-offset-2 cursor-pointer"
+                                        >
+                                            {tier.altPrice}
+                                        </a>
+                                    ) : (
+                                        tier.altPrice
+                                    )}
+                                </div>
                             )}
                         </div>
 

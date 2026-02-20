@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const nodes = [
     { id: 'D', name: 'DRIVE', role: 'Acquisition Roadmap', pain: "I have no acquisition roadmap", artifact: 'Acquisition roadmap / traffic model', active: false },
@@ -87,6 +88,28 @@ export const SquadFlow: React.FC = () => {
                     </motion.div>
                 ))}
             </div>
+
+            {/* CTA */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={11}
+                className="mt-10 text-center"
+            >
+                <a
+                    href={import.meta.env.VITE_STRIPE_SQUAD_LINK || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3 bg-warp-blue text-white text-sm font-bold uppercase tracking-wider rounded-lg hover:bg-warp-blue-dim transition-all shadow-[0_0_20px_rgba(37,99,235,0.15)] cursor-pointer"
+                >
+                    Get the Squad — $97 flat <ArrowRight className="w-4 h-4" />
+                </a>
+                <p className="text-[10px] text-white/20 mt-3 uppercase tracking-wider">
+                    Every node in the squad. All finished artifacts.
+                </p>
+            </motion.div>
         </section>
     );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -81,6 +82,28 @@ export const PlatoonOverview: React.FC = () => {
                     </motion.div>
                 ))}
             </div>
+
+            {/* CTA */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={11}
+                className="mt-8 text-center"
+            >
+                <a
+                    href={import.meta.env.VITE_STRIPE_PLATOON_LINK || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3 bg-warp-blue text-white text-sm font-bold uppercase tracking-wider rounded-lg hover:bg-warp-blue-dim transition-all shadow-[0_0_20px_rgba(37,99,235,0.15)] cursor-pointer"
+                >
+                    Go Platoon — $297/mo <ArrowRight className="w-4 h-4" />
+                </a>
+                <p className="text-[10px] text-white/20 mt-3">
+                    or <a href={import.meta.env.VITE_STRIPE_PLATOON_YEARLY_LINK || '#'} target="_blank" rel="noopener noreferrer" className="text-warp-blue/60 hover:text-warp-blue underline decoration-dotted underline-offset-2 transition-colors cursor-pointer">$1,997/yr</a> — save 44%
+                </p>
+            </motion.div>
 
             {/* Oracle Link */}
             <motion.div

@@ -58,9 +58,7 @@ export const EmailGate: React.FC<EmailGateProps> = ({ isOpen, onClose, onSuccess
                         {!sent ? (
                             <>
                                 <div className="text-center mb-6">
-                                    <div className="w-12 h-12 rounded-full bg-warp-blue/10 border border-warp-blue/30 flex items-center justify-center mx-auto mb-4">
-                                        <span className="text-warp-blue text-lg font-bold">W</span>
-                                    </div>
+                                    <img src="/icons/logo.svg" alt="WARP" className="w-12 h-12 object-contain mx-auto mb-4" />
                                     <h3 className="text-xl font-serif font-bold text-white mb-2">
                                         Access WARP — Free
                                     </h3>

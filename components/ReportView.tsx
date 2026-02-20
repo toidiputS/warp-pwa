@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SprintReport } from '../types';
 import { Button } from './Button';
-import { Check, AlertTriangle, TrendingUp, Send, Rocket, Clock, Target } from 'lucide-react';
+import { Check, AlertTriangle, TrendingUp, Send, Rocket, Clock, Target, Crown } from 'lucide-react';
 import { clsx } from 'clsx';
 
 interface ReportViewProps {
@@ -206,6 +206,46 @@ export const ReportView: React.FC<ReportViewProps> = ({ report, onCommit }) => {
                     <p className="text-lg md:text-xl font-serif text-white leading-relaxed italic">
                         "{report.launchReadinessVerdict}"
                     </p>
+                </div>
+
+                {/* Upsell CTA */}
+                <div className="bg-gradient-to-br from-warp-blue/10 to-transparent border border-warp-blue/20 rounded-sm p-6 md:p-8">
+                    <div className="flex flex-col md:flex-row items-center gap-6">
+                        <div className="flex-1 text-center md:text-left">
+                            <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                                <Crown className="w-4 h-4 text-warp-blue" />
+                                <span className="text-xs font-bold text-warp-blue uppercase tracking-wider">Unlock Full Power</span>
+                            </div>
+                            <h3 className="text-lg font-serif font-bold text-white mb-2">
+                                Want Memory, NotNotes & Oracle?
+                            </h3>
+                            <p className="text-xs text-warp-subtext leading-relaxed">
+                                Your free sprint map is just the start. Upgrade to save context across sessions,
+                                auto-sync to NotNotes, and get access to the Oracle AI assistant.
+                            </p>
+                        </div>
+                        <div className="flex flex-col gap-2 shrink-0">
+                            <a
+                                href={import.meta.env.VITE_STRIPE_SQUAD_PLUS_LINK || '#'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-center transition-all ${import.meta.env.VITE_STRIPE_SQUAD_PLUS_LINK
+                                        ? 'bg-warp-blue text-white hover:bg-warp-blue-dim shadow-[0_0_15px_rgba(37,99,235,0.2)] cursor-pointer'
+                                        : 'bg-white/5 text-white/40 border border-white/5 cursor-default'
+                                    }`}
+                            >
+                                Upgrade to Squad+ — $127/mo
+                            </a>
+                            <a
+                                href={import.meta.env.VITE_STRIPE_PLATOON_LINK || '#'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-6 py-2 text-xs text-warp-blue/70 hover:text-warp-blue transition-colors text-center underline decoration-dotted underline-offset-2 cursor-pointer"
+                            >
+                                or Go Platoon — All 67 nodes
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Action Area */}

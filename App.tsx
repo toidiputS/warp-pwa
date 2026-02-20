@@ -337,10 +337,31 @@ export default function App() {
                             Your 7-day sprint map has been copied to your clipboard and committed to NotNotes.
                             Now go execute. You have 168 hours.
                         </p>
-                        <div className="pt-4 space-y-3">
+                        <div className="pt-4 space-y-4">
                             <Button onClick={() => setState(AppState.WELCOME)} variant="secondary">
                                 Run Another Sprint
                             </Button>
+
+                            <div className="border-t border-white/5 pt-4 mt-4 space-y-3">
+                                <p className="text-[10px] text-white/30 uppercase tracking-wider">Ready for more?</p>
+                                <a
+                                    href={import.meta.env.VITE_STRIPE_SQUAD_LINK || '#'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block px-4 py-2.5 bg-warp-blue/10 border border-warp-blue/20 rounded-lg text-xs text-warp-blue font-bold uppercase tracking-wider text-center hover:bg-warp-blue/20 transition-all cursor-pointer"
+                                >
+                                    Get the Full Squad → 9 Nodes · $97
+                                </a>
+                                <a
+                                    href={import.meta.env.VITE_STRIPE_PLATOON_LINK || '#'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block px-4 py-2 text-[10px] text-white/30 hover:text-white/50 text-center transition-colors underline decoration-dotted underline-offset-2 cursor-pointer"
+                                >
+                                    or Go Platoon · All 67 nodes · $297/mo
+                                </a>
+                            </div>
+
                             <div className="text-[10px] text-white/20 mt-2 uppercase tracking-wider">
                                 Next Node → <span className="text-warp-blue">WARP+</span> (Velocity Engine)
                             </div>

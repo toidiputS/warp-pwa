@@ -138,6 +138,21 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                 </p>
             </motion.div>
 
+            {/* Urgency Banner */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={0.5}
+                className="text-center mb-6"
+            >
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-warp-blue/5 border border-warp-blue/20 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-xs text-warp-subtext">Launch pricing — <span className="text-warp-blue font-bold">rates increase soon</span></span>
+                </div>
+            </motion.div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 {tiers.map((tier, i) => (
                     <motion.div
@@ -216,7 +231,7 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                                     : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                                 }`}
                         >
-                            {(tier.action !== 'free' && !tier.stripeLink) ? `${tier.cta} — Soon` : tier.cta}
+                            {(tier.action !== 'free' && !tier.stripeLink) ? `Join Waitlist` : tier.cta}
                         </button>
                     </motion.div>
                 ))}

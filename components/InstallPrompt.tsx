@@ -54,7 +54,7 @@ export const InstallPrompt: React.FC = () => {
                 className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-md"
             >
                 <div className="bg-warp-card/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center gap-4">
-                    <img src="/icons/logo.svg" alt="WARP" className="w-10 h-10 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.3)] shrink-0" />
+                    <img src="/icons/logo.svg" alt="WARP" className="w-10 h-10 object-contain shrink-0" />
                     <div className="flex-1 min-w-0">
                         <p className="text-white text-sm font-semibold">Install WARP</p>
                         <p className="text-warp-subtext text-xs truncate">Add to home screen for instant access</p>

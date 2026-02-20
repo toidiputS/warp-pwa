@@ -36,8 +36,8 @@ export const SquadFlow: React.FC = () => {
             >
                 <div className="h-px w-16 bg-warp-blue/50 mx-auto mb-4" />
                 <div className="flex items-center justify-center gap-2 mb-4">
-                    <span className="text-[#2563eb] text-xs uppercase tracking-[0.3em]">Growth Engine Squad</span>
-                    <span className="w-2 h-2 rounded-full bg-[#2563eb]/50" />
+                    <span className="text-warp-blue text-xs uppercase tracking-[0.3em]">Growth Engine Squad</span>
+                    <span className="w-2 h-2 rounded-full bg-warp-blue/50" />
                     <span className="text-white/30 text-[10px] uppercase tracking-wider">itsaiagents.online</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mt-2">
@@ -61,12 +61,12 @@ export const SquadFlow: React.FC = () => {
                         variants={fadeUp}
                         custom={i + 1}
                         className={`rounded-xl p-4 border transition-all ${node.active
-                            ? 'bg-[#2563eb]/5 border-[#2563eb]/30 shadow-[0_0_25px_rgba(37,99,235,0.06)]'
+                            ? 'bg-warp-blue/5 border-warp-blue/30 shadow-[0_0_25px_rgba(37,99,235,0.06)]'
                             : 'bg-warp-card/60 border-white/5 hover:border-white/10'
                             }`}
                     >
                         <div className="flex items-center gap-2 mb-2">
-                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${node.active ? 'bg-[#2563eb]/20 text-[#2563eb]' : 'bg-white/5 text-white/35'
+                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${node.active ? 'bg-warp-blue/20 text-warp-blue' : 'bg-white/5 text-white/35'
                                 }`}>
                                 {node.id}
                             </span>
@@ -81,7 +81,7 @@ export const SquadFlow: React.FC = () => {
                             {node.artifact}
                         </p>
                         {node.active && (
-                            <span className="inline-block text-[8px] text-[#2563eb] bg-[#2563eb]/10 px-2 py-0.5 rounded-full mt-2 uppercase tracking-widest font-bold">
+                            <span className="inline-block text-[8px] text-warp-blue bg-warp-blue/10 px-2 py-0.5 rounded-full mt-2 uppercase tracking-widest font-bold">
                                 You Are Here
                             </span>
                         )}

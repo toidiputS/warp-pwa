@@ -71,7 +71,7 @@ export const ReportView: React.FC<ReportViewProps> = ({ report, onCommit }) => {
                 {/* Main Score Dashboard */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* Main Score */}
-                    <div className="md:col-span-1 bg-gradient-to-br from-warp-card to-warp-dark border border-warp-blue/20 p-8 flex flex-col items-center justify-center relative overflow-hidden rounded-sm group">
+                    <div className="md:col-span-1 bg-linear-to-br from-warp-card to-warp-dark border border-warp-blue/20 p-8 flex flex-col items-center justify-center relative overflow-hidden rounded-sm group">
                         <div className="absolute inset-0 bg-warp-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <h3 className="text-warp-subtext text-xs uppercase tracking-widest mb-4">Sprint Readiness</h3>
                         <div className="relative">
@@ -201,7 +201,7 @@ export const ReportView: React.FC<ReportViewProps> = ({ report, onCommit }) => {
                 </div>
 
                 {/* Launch Readiness Verdict */}
-                <div className="bg-gradient-to-r from-warp-card to-warp-dark border border-white/10 p-8 rounded-sm text-center">
+                <div className="bg-linear-to-r from-warp-card to-warp-dark border border-white/10 p-8 rounded-sm text-center">
                     <h3 className="text-sm font-bold text-warp-subtext uppercase tracking-widest mb-4">Launch Readiness Verdict</h3>
                     <p className="text-lg md:text-xl font-serif text-white leading-relaxed italic">
                         "{report.launchReadinessVerdict}"
@@ -209,7 +209,7 @@ export const ReportView: React.FC<ReportViewProps> = ({ report, onCommit }) => {
                 </div>
 
                 {/* Upsell CTA */}
-                <div className="bg-gradient-to-br from-warp-blue/10 to-transparent border border-warp-blue/20 rounded-sm p-6 md:p-8">
+                <div className="bg-linear-to-br from-warp-blue/10 to-transparent border border-warp-blue/20 rounded-sm p-6 md:p-8">
                     <div className="flex flex-col md:flex-row items-center gap-6">
                         <div className="flex-1 text-center md:text-left">
                             <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
@@ -230,8 +230,8 @@ export const ReportView: React.FC<ReportViewProps> = ({ report, onCommit }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-center transition-all ${import.meta.env.VITE_STRIPE_SQUAD_PLUS_LINK
-                                        ? 'bg-warp-blue text-white hover:bg-warp-blue-dim shadow-[0_0_15px_rgba(37,99,235,0.2)] cursor-pointer'
-                                        : 'bg-white/5 text-white/40 border border-white/5 cursor-default'
+                                    ? 'bg-warp-blue text-white hover:bg-warp-blue-dim shadow-[0_0_15px_rgba(37,99,235,0.2)] cursor-pointer'
+                                    : 'bg-white/5 text-white/40 border border-white/5 cursor-default'
                                     }`}
                             >
                                 Upgrade to Squad+ — $127/mo

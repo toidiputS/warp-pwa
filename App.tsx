@@ -12,6 +12,7 @@ import { EmailGate } from './components/EmailGate';
 import { Logo } from './components/Logo';
 import { Button } from './components/Button';
 import { InstallPrompt } from './components/InstallPrompt';
+import { PurchaseSuccess } from './components/PurchaseSuccess';
 import { ArrowRight, Zap, Clock, Target, Rocket } from 'lucide-react';
 import './index.css';
 
@@ -57,6 +58,16 @@ export default function App() {
     const [answers, setAnswers] = useState<string[]>([]);
     const [showEmailGate, setShowEmailGate] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [purchasedTier, setPurchasedTier] = useState<string | null>(null);
+
+    // Detect ?purchased= param from Stripe redirect
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const tier = params.get('purchased');
+        if (tier) {
+            setPurchasedTier(tier);
+        }
+    }, []);
 
     // Register service worker
     useEffect(() => {
@@ -117,8 +128,24 @@ export default function App() {
                 <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-900/3 blur-[120px] rounded-full" />
             </div>
 
+            {/* PURCHASE SUCCESS — from Stripe redirect */}
+            {purchasedTier && state === AppState.WELCOME && (
+                <PurchaseSuccess
+                    tier={purchasedTier}
+                    onStartSprint={() => {
+                        setPurchasedTier(null);
+                        window.history.replaceState({}, '', '/');
+                        setState(AppState.QUESTIONS);
+                    }}
+                    onGoHome={() => {
+                        setPurchasedTier(null);
+                        window.history.replaceState({}, '', '/');
+                    }}
+                />
+            )}
+
             {/* WELCOME STATE — Landing Page */}
-            {state === AppState.WELCOME && (
+            {state === AppState.WELCOME && !purchasedTier && (
                 <div className="relative z-10">
                     {/* Navbar */}
                     <nav className="fixed top-0 w-full z-50 bg-warp-dark/80 backdrop-blur-md border-b border-white/5">

@@ -153,8 +153,8 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onStartFree }) => {
                             }`}
                     >
                         {tier.badge && (
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                                <span className="bg-warp-blue text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                            <div className="absolute -top-3 left-0 w-full flex justify-center pointer-events-none">
+                                <span className="bg-warp-blue text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]">
                                     {tier.badge}
                                 </span>
                             </div>
